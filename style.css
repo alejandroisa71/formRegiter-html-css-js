@@ -1,0 +1,84 @@
+:root {
+  --cform-background1: rgba(124, 200, 80, 0.39);
+  --cform-background2: rgb(129, 193, 202);
+  --cblack: black;
+  --ctext: rgb(14, 81, 88);
+  --ctextDark:rgb(1,35,39);
+  --cwhite: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  /* border: 3px solid red; */
+  max-width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.form {
+  /* border: 3px solid green; */
+  max-width: 400px;
+  padding: 30px 50px;
+  margin: auto;
+  margin-top: 10px;
+  background: linear-gradient(
+    0deg,
+    var(--cform-background1) 0%,
+    var(--cform-background2) 50%
+  );
+  /* padding: 1.5rem; */
+  box-shadow: 0 0 20px rgba(212, 57, 57, 0.5);
+}
+
+.form-title {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  justify-content: baseline;
+  background: none;
+  color: var(--ctext);
+}
+
+input {
+  /* border: 3px solid red; */
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+  border: none;
+  outline: 0;
+}
+
+.form-button{
+  background: var(--cblack);
+  color:var(--cwhite);
+  padding: 10px 50px;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-button:hover{
+  background: var(--cwhite);
+  color: var(--cblack);
+  transition: .5s;
+}
