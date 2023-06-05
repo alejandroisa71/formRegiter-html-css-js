@@ -1,19 +1,17 @@
-const form = document.querySelector('form')
+const form = document.querySelector("form");
 
 
-const validateInput = (x) =>{
-    
-    console.log(x)
+
+const validateInput = (name,value) => {
+    if (!value || value.trim().length ===0) alert(`El campo ${name} no puede estar vacio`)
+    console.log(name,value)
 }
 
-form.addEventListener('submit',(e) => {
-    e.preventDefault()
-    const formData = new FormData(form)
-    
-    for(let [name, value] of formData) {
-        alert(`${name} = ${value}`); // key1 = value1, luego key2 = value2
-      }
-    
-   
-    
-})
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+
+  formData.forEach((value, name) => {
+    validateInput(name,value)
+  });
+});
