@@ -30,9 +30,9 @@ body {
   margin: auto;
   margin-top: 10px;
   background: linear-gradient(
-    0deg,
+    -45deg,
     var(--cform-background1) 0%,
-    var(--cform-background2) 50%
+    var(--cform-background2) 60% 
   );
   /* padding: 1.5rem; */
   box-shadow: 0 0 20px rgba(212, 57, 57, 0.5);
