@@ -18,18 +18,15 @@ form.addEventListener("submit", (e) => {
     : (formErr.innerHTML = "");
 });
 
-//Validacion para firstName y lastName
-const firstName = document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const username = document.getElementById("username");
+//Validacion para firstName, lastName and username
 
 const namesValidation = (fieldValue, errorMessage, fieldError) => {
-  textValue = fieldValue.value.trim();
+  const textValue = fieldValue.value.trim();
   fieldValue.id === "username"
     ? (validField = /^[a-z0-9]*$/i)
     : (validField = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/);
 
-  fieldErr = document.getElementById(fieldError);
+  const fieldErr = document.getElementById(fieldError);
   fieldErr.innerHTML = "";
   if (!validField.test(textValue)) fieldErr.innerHTML = errorMessage;
   if (!textValue) fieldErr.innerHTML = "This field is required";
@@ -52,4 +49,34 @@ username.oninput = function () {
   namesValidation(username, errorMessage, fieldError);
 };
 
+//Comprobar que contraseña tenga al menos 8 caracteres
 
+password.addEventListener(
+  "blur",
+  function (e) {
+    const fieldError = "password-err";
+    const errorMessage = "Password must be at least 8 characters";
+    const fieldErr = document.getElementById(fieldError);
+    const password = e.target.value;
+    const validatePassword = /.{8,}/.test(password);
+    !validatePassword
+      ? (fieldErr.innerHTML = errorMessage)
+      : (fieldErr.innerHTML = "");
+  },
+  true
+);
+
+confirmPassword.addEventListener(
+  "blur",
+  function (e) {
+    const fieldError = "confirmPassword-err";
+    const errorMessage = "Password must be at least 8 characters";
+    const fieldErr = document.getElementById(fieldError);
+    const password = e.target.value;
+    const validatePassword = /.{8,}/.test(password);
+    !validatePassword
+      ? (fieldErr.innerHTML = errorMessage)
+      : (fieldErr.innerHTML = "");
+  },
+  true
+);
