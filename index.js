@@ -1,22 +1,41 @@
-const form = document.querySelector("form");
-let error=false
+const form = document.querySelector('form');
 
-// const validateInput = (name, value, error) => {
-//   if (!value){
-//     error =true
-//     return error
-//   }
-//     //alert(`El campo ${name} no puede estar vacio`);
-//   //console.log(name, value);
-// };
-
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(form);
-  !formData.get('firstName') ? console.log('no hay') : console.log('si hay')
+  const error = 'Todos los campos son obligatorios';
+  formErr = document.getElementById('form-err');
 
-  // formData.forEach((value, name) => {
-  //   validateInput(name, value.trim(), error);
-  // });
-  
+  !formData.get('firstName') ||
+    !formData.get('lastName') ||
+    !formData.get('username') ||
+    !formData.get('password') ||
+    !formData.get('confirmPassword') ||
+    !formData.get('birthDay');
+  !formData.get('newsletter')
+    ? (formErr.innerHTML = error)
+    : (formErr.innerHTML = '');
 });
+
+const firstName = document.getElementById('firstName');
+const lastName = document.getElementById('lastName');
+
+const namesValidation = (fieldValue, errorMessage, fieldError) => {
+  textValue = fieldValue.value.trim();
+  validField = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
+  fieldErr = document.getElementById(fieldError);
+  fieldErr.innerHTML = '';
+  if (!validField.test(textValue)) fieldErr.innerHTML = errorMessage;
+  if (!textValue) fieldErr.innerHTML = 'This field is required';
+};
+
+firstName.oninput = function () {
+  const errorMessage = 'Invalid First Name';
+  const fieldErrorMessage = 'first-name-err';
+  namesValidation(firstName, errorMessage, fieldErrorMessage);
+};
+lastName.oninput = function () {
+  const fieldError = 'last-name-err';
+  const errorMessage = 'Invalid Last Name';
+  namesValidation(lastName, errorMessage, fieldError);
+};

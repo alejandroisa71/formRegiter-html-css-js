@@ -12,35 +12,38 @@
       
       <!-- <div class="contact"> -->
         <form class="form">
-          <p class="form-title">Formulario de Registro</p>
+          <p class="form-title">Registration Form</p>
           <label >
             First name
-            <input type="text" name="firstName">
+            <input type="text" name="firstName" id="firstName">
           </label>
+          <div id="first-name-err" class="error"></div>
           <label >
             Last Name
-            <input type="text" name="lastName">
+            <input type="text" name="lastName" id="lastName">
           </label>
+          <div id="last-name-err" class="error"></div>
           <label >
             Username
-            <input type="text" name="username">
+            <input type="text" name="username" id="username">
           </label>
           <label >
             Password
-            <input type="password" name="password">
+            <input type="password" name="password" id="password">
           </label>
           <label >
             Confirm Password
-            <input type="password" name="confirmPassword">
+            <input type="password" name="confirmPassword" id="confirmPassword">
           </label>
           <label >
             Birthday
-            <input type="date" name="birthDay">
+            <input type="date" name="birthDay" id="birthDay">
           </label>
           <label >
-          <input type="checkbox" name="newsletter">
-          Accept Conditions
+            <input type="checkbox" name="newsletter" id="newsletter">
+            Accept Conditions
           </label>
+          <div id="form-err" name="form-err" class="error"></div>
           <button class="form-button">Submit</button>
         </form>
       <!-- </div> -->
