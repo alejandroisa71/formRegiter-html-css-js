@@ -16,11 +16,34 @@ body {
   font-family: sans-serif;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  justify-content: baseline;
+  background: none;
+  color: var(--ctext);
+}
+
+input {
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+  border: none;
+  outline: 0;
+}
+
+p {
+  margin: 0;
+}
+
 .container {
-  /* border: 3px solid red; */
   max-width: 90%;
   margin: auto;
   margin-top: 10px;
+}
+
+#newsletter {
+  margin-right: 1rem;
 }
 
 .form {
@@ -44,22 +67,7 @@ body {
   padding-bottom: 10px;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
-  justify-content: baseline;
-  background: none;
-  color: var(--ctext);
-}
 
-input {
-  /* border: 3px solid red; */
-  margin-top: 0.2rem;
-  padding: 0.3rem;
-  border: none;
-  outline: 0;
-}
 .error {
   color: #a55858;
   padding: 0.5rem;
@@ -94,10 +102,6 @@ input {
   display: flex;
 }
 
-#newsletter {
-  margin-right: 1rem;
-}
 
-p {
-  margin: 0;
-}
+
+

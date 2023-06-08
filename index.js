@@ -1,94 +1,92 @@
-const form = document.querySelector('form');
+const form = document.querySelector("form");
 
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(form);
-  const error = 'Todos los campos son obligatorios';
-  formErr = document.getElementById('form-err');
+  const error = "Todos los campos son obligatorios";
+  formErr = document.getElementById("form-err");
 
   //Valida que todos los campos tengan valor
-  !formData.get('firstName') ||
-  !formData.get('lastName') ||
-  !formData.get('username') ||
-  !formData.get('password') ||
-  !formData.get('confirmPassword') ||
-  !formData.get('birthDay')
+  !formData.get("firstName") ||
+  !formData.get("lastName") ||
+  !formData.get("username") ||
+  !formData.get("password") ||
+  !formData.get("confirmPassword") ||
+  !formData.get("birthDay")
     ? (formErr.innerHTML = error)
-    : (formErr.innerHTML = '');
+    : ((formErr.innerHTML = ""), alert("Registro Exitoso!!😎"));
 });
 
 //Validacion para firstName, lastName and username
 
 const namesValidation = (fieldValue, errorMessage, fieldError) => {
   const textValue = fieldValue.value.trim();
-  fieldValue.id === 'username'
+  fieldValue.id === "username"
     ? (validField = /^[a-z0-9]*$/i)
     : (validField = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/);
 
   const fieldErr = document.getElementById(fieldError);
-  fieldErr.innerHTML = '';
+  fieldErr.innerHTML = "";
   if (!validField.test(textValue)) fieldErr.innerHTML = errorMessage;
-  if (!textValue) fieldErr.innerHTML = 'This field is required';
+  if (!textValue) fieldErr.innerHTML = "This field is required";
 };
 
-firstName.oninput = function () {
-  const errorMessage = 'Invalid First Name';
-  const fieldErrorMessage = 'first-name-err';
+firstName.oninput = () => {
+  const errorMessage = "Invalid First Name";
+  const fieldErrorMessage = "first-name-err";
   namesValidation(firstName, errorMessage, fieldErrorMessage);
 };
-lastName.oninput = function () {
-  const fieldError = 'last-name-err';
-  const errorMessage = 'Invalid Last Name';
+lastName.oninput = () => {
+  const fieldError = "last-name-err";
+  const errorMessage = "Invalid Last Name";
   namesValidation(lastName, errorMessage, fieldError);
 };
 
-username.oninput = function () {
-  const fieldError = 'usermame-err';
-  const errorMessage = 'Invalid username (Only letters and numbers)';
+username.oninput = () => {
+  const fieldError = "usermame-err";
+  const errorMessage = "Invalid username (Only letters and numbers)";
   namesValidation(username, errorMessage, fieldError);
 };
 
 //Comprobar que contraseña tenga al menos 8 caracteres
-
 password.addEventListener(
-  'blur',
-  function (e) {
-    const fieldError = 'password-err';
-    const errorMessage = 'Password must be at least 8 characters';
+  "blur",
+  ({ target: { value } }) => {
+    const fieldError = "password-err";
     const fieldErr = document.getElementById(fieldError);
-    const password = e.target.value;
-    const validatePassword = /.{8,}/.test(password);
+    const validatePassword = /.{8,}/.test(value);
     !validatePassword
-      ? (fieldErr.innerHTML = errorMessage)
-      : (fieldErr.innerHTML = '');
+      ? (fieldErr.innerHTML = "Password must be at least 8 characters")
+      : (fieldErr.innerHTML = "");
   },
   true
 );
 
-//controlar contrasenas iguales
-
+//Controla contraseñas iguales
 confirmPassword.addEventListener(
-  'blur',
-  function (e) {
-    const fieldError = 'confirmPassword-err';
-    const errorMessage = 'Password must be at least 8 characters';
+  "blur",
+  ({ target: { value } }) => {
+    const checkKey1 = password.value;
+    const fieldError = "confirmPassword-err";
     const fieldErr = document.getElementById(fieldError);
-    const password = e.target.value;
-    const validatePassword = /.{8,}/.test(password);
-    !validatePassword
-      ? (fieldErr.innerHTML = errorMessage)
-      : (fieldErr.innerHTML = '');
+
+    checkKey1 !== value
+      ? (fieldErr.innerHTML = "Passwords do not match")
+      : (fieldErr.innerHTML = "");
   },
   true
 );
 
- // controlar el ingreso de fechas
-
+//Valida fecha
+birthDay.addEventListener("blur", ({ target: { value } }) => {
+  const fieldError = "birthDay-err";
+  const fieldErr = document.getElementById(fieldError);
+  !value ? (fieldErr.innerHTML = "Invalid date") : (fieldErr.innerHTML = "");
+});
 
 //Activa o desactiva el boton Submit segun la condicion del checkbox
 let buttonDisabled = true;
-newsletter.addEventListener('click', function () {
+newsletter.addEventListener("click", () => {
   buttonDisabled = !buttonDisabled;
-  document.getElementById('submitButton').disabled = buttonDisabled;
-  console.log(buttonDisabled);
+  document.getElementById("submitButton").disabled = buttonDisabled;
 });
