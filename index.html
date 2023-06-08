@@ -5,50 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      
       <!-- <div class="contact"> -->
-        <form class="form">
-          <p class="form-title">Registration Form</p>
-          <label >
-            First name
-            <input type="text" name="firstName" id="firstName">
-          </label>
-          <div id="first-name-err" class="error"></div>
-          <label >
-            Last Name
-            <input type="text" name="lastName" id="lastName">
-          </label>
-          <div id="last-name-err" class="error"></div>
-          <label >
-            Username
-            <input type="text" name="username" id="username">
-          </label>
-          <div id="usermame-err" class="error"></div>
-          <label >
-            Password
-            <input type="password" name="password" id="password">
-          </label>
-          <div id="password-err" class="error"></div>
-          <label >
-            Confirm Password
-            <input type="password" name="confirmPassword" id="confirmPassword">
-          </label>
-          <div id="confirmPassword-err" class="error"></div>
-          <label >
-            Birthday
-            <input type="date" name="birthDay" id="birthDay">
-          </label>
-          <label >
-            <input type="checkbox" name="newsletter" id="newsletter">
-            Accept Conditions
-          </label>
-          <div id="form-err" name="form-err" class="error"></div>
-          <button class="form-button">Submit</button>
-        </form>
+      <form class="form">
+        <p class="form-title">Registration Form</p>
+        <label>
+          First name
+          <input type="text" name="firstName" id="firstName" />
+        </label>
+        <div id="first-name-err" class="error"></div>
+        <label>
+          Last Name
+          <input type="text" name="lastName" id="lastName" />
+        </label>
+        <div id="last-name-err" class="error"></div>
+        <label>
+          Username
+          <input type="text" name="username" id="username" />
+        </label>
+        <div id="usermame-err" class="error"></div>
+        <label>
+          Password
+          <input type="password" name="password" id="password" />
+        </label>
+        <div id="password-err" class="error"></div>
+        <label>
+          Confirm Password
+          <input type="password" name="confirmPassword" id="confirmPassword" />
+        </label>
+        <div id="confirmPassword-err" class="error"></div>
+        <label>
+          Birthday
+          <input type="date" name="birthDay" id="birthDay" />
+        </label>
+        <label>
+          <div  class="newsletter">
+            <input type="checkbox" name="newsletter" id="newsletter" />
+            <p>Accept Conditions</p>
+          </div>
+        </label>
+        <div id="form-err" name="form-err" class="error"></div>
+        <button class="form-button" disabled id="submitButton">Submit</button>
+      </form>
       <!-- </div> -->
     </div>
 

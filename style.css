@@ -3,7 +3,7 @@
   --cform-background2: rgb(129, 193, 202);
   --cblack: black;
   --ctext: rgb(14, 81, 88);
-  --ctextDark:rgb(1,35,39);
+  --ctextDark: rgb(1, 35, 39);
   --cwhite: white;
 }
 
@@ -20,7 +20,7 @@ body {
   /* border: 3px solid red; */
   max-width: 90%;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .form {
@@ -31,7 +31,7 @@ body {
   background: linear-gradient(
     -45deg,
     var(--cform-background1) 0%,
-    var(--cform-background2) 60% 
+    var(--cform-background2) 60%
   );
   box-shadow: 0 0 20px rgba(212, 57, 57, 0.5);
 }
@@ -41,13 +41,13 @@ body {
   font-size: 25px;
   text-align: center;
   margin: 0;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 label {
   display: flex;
   flex-direction: column;
-  padding: .5rem;
+  padding: 0.5rem;
   justify-content: baseline;
   background: none;
   color: var(--ctext);
@@ -60,14 +60,14 @@ input {
   border: none;
   outline: 0;
 }
-.error{
+.error {
   color: #a55858;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
-.form-button{
+.form-button {
   background: var(--cblack);
-  color:var(--cwhite);
+  color: var(--cwhite);
   padding: 10px 50px;
   font-size: 20px;
   font-weight: bold;
@@ -79,8 +79,25 @@ input {
   border: none;
 }
 
-.form-button:hover{
+.form-button:hover {
   background: var(--cwhite);
   color: var(--cblack);
-  transition: .5s;
+  transition: 0.5s;
+}
+
+.form-button:disabled {
+  background: #fafafa;
+  color: gray;
+}
+
+.newsletter {
+  display: flex;
+}
+
+#newsletter {
+  margin-right: 1rem;
+}
+
+p {
+  margin: 0;
 }
